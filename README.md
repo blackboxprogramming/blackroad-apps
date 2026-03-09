@@ -1,142 +1,57 @@
-# BlackRoad Ecosystem 🛣️
+# BlackRoad Apps
 
-Complete suite of platforms for the BlackRoad operating system.
+Application suite for the BlackRoad OS platform. 8 services spanning project management, streaming, blockchain, and infrastructure monitoring.
 
 ## Applications
 
-### 🗺️ RoadMap
-**Project Planning & Collaboration Platform**
-- Tech: Next.js, TypeScript, WebSockets
-- Features: Real-time collaboration, Kanban boards, Analytics
-- Target: aria64 (Raspberry Pi)
+| App | Stack | Description |
+|-----|-------|-------------|
+| **RoadMap** | Next.js, TypeScript, WebSockets | Project planning with real-time Kanban boards |
+| **RoadWork** | Node.js, Express | Job board with AI matching |
+| **RoadWorld** | Go, Gin, WebGL | Earth exploration and virtual environments |
+| **RoadChain** | Rust, Actix-web, SHA-256 | Blockchain verification and immutable storage |
+| **RoadCoin** | Python, FastAPI, Redis | Equity crowdfunding and crypto payments |
+| **RoadView** | Node.js | Creative suite — design, video, AI generation |
+| **PitStop** | Go, Gin | Infrastructure dashboard with real-time metrics |
+| **RoadSide** | Node.js, Socket.io | Deployment portal and server connections |
 
-### 💼 RoadWork
-**Job Portal & Entrepreneur Platform**
-- Tech: Node.js, Express, MongoDB simulation
-- Features: Job board, AI matching, Entrepreneur networking, Funding connections
-- Target: aria64 (Raspberry Pi)
+## Deploy
 
-### 🌍 RoadWorld
-**Metaverse & Game Creation Platform**
-- Tech: Go, Gin, WebSockets, WebGL
-- Features: Open world Earth simulation, Virtual HQs, Game creation, 3D assets
-- Target: shellfish (Droplet)
-
-### ⛓️ RoadChain
-**Blockchain Verification System**
-- Tech: Rust, Actix-web, SHA-256
-- Features: Immutable data storage, Proof of work, Transaction verification
-- Target: shellfish (Droplet)
-
-### 💰 RoadCoin
-**Non-IPO Funding Platform**
-- Tech: Python, FastAPI, Redis
-- Features: Equity crowdfunding, Crypto payments, Smart contracts
-- Target: shellfish (Droplet)
-
-### 🎨 RoadView
-**Creative Suite**
-- Tech: Node.js (future: Vue.js + Python)
-- Features: Design tools, Video editing, AI generation, YouTube integration
-- Target: aria64 (Raspberry Pi)
-
-### 🔧 PitStop
-**Infrastructure Dashboard**
-- Tech: Go, Gin
-- Features: Real-time metrics, Container management, DNS, Deployments
-- Target: aria64 (Raspberry Pi)
-
-### 🚦 RoadSide
-**Connections & Deploy Portal**
-- Tech: Node.js, Socket.io
-- Features: Server connections, Deployment UI, DNS config, CLI integration
-- Target: aria64 (Raspberry Pi)
-
-## Quick Deploy
-
-Deploy all applications:
 ```bash
-cd ~/blackroad-apps
+# Deploy all
 ./DEPLOY_ALL.sh
-```
 
-Deploy individual app:
-```bash
-cd ~/blackroad-deploy
-./br-deploy deploy ~/blackroad-apps/roadmap aria64
+# Deploy one app
+~/blackroad-deploy/br-deploy deploy ~/blackroad-apps/roadmap aria64
 ```
 
 ## Architecture
 
-```
-┌─────────────────────────────────────────┐
-│         BlackRoad Ecosystem             │
-├─────────────────────────────────────────┤
-│                                         │
-│  ┌──────────┐  ┌──────────┐            │
-│  │  aria64  │  │shellfish │            │
-│  │   (Pi)   │  │ (Droplet)│            │
-│  └────┬─────┘  └────┬─────┘            │
-│       │             │                   │
-│  ┌────▼─────────────▼────┐             │
-│  │   Caddy Reverse Proxy │             │
-│  └─────────┬───────────── ┘            │
-│            │                            │
-│       ┌────▼────┐                       │
-│       │  Apps   │                       │
-│       └─────────┘                       │
-└─────────────────────────────────────────┘
-```
+Apps run on Raspberry Pi nodes (aria64) and DigitalOcean droplets behind Caddy reverse proxy.
 
-## Deployment Status
-
-Check deployments:
 ```bash
+# Check deployments
 ~/blackroad-deploy/br-deploy list aria64
-~/blackroad-deploy/br-deploy list shellfish
-```
 
-View logs:
-```bash
+# View logs
 ~/blackroad-deploy/br-deploy logs roadmap aria64
-~/blackroad-deploy/br-deploy logs roadworld shellfish
 ```
 
-## DNS Configuration
+## Project Structure
 
-Set up domains for each app:
-```bash
-~/blackroad-deploy/scripts/dns-manager.sh set roadmap.blackroad.io aria64
-~/blackroad-deploy/scripts/dns-manager.sh set roadwork.blackroad.io aria64
-~/blackroad-deploy/scripts/dns-manager.sh set roadworld.blackroad.io shellfish
-~/blackroad-deploy/scripts/dns-manager.sh set roadchain.blackroad.io shellfish
-~/blackroad-deploy/scripts/dns-manager.sh set roadcoin.blackroad.io shellfish
-~/blackroad-deploy/scripts/dns-manager.sh set roadview.blackroad.io aria64
-~/blackroad-deploy/scripts/dns-manager.sh set pitstop.blackroad.io aria64
-~/blackroad-deploy/scripts/dns-manager.sh set roadside.blackroad.io aria64
+```
+blackroad-apps/
+  roadmap/        # Project planning
+  roadwork/       # Job portal
+  roadworld/      # Earth exploration
+  roadchain/      # Blockchain
+  roadcoin/       # Crowdfunding
+  roadview/       # Creative suite
+  pitstop/        # Infrastructure dashboard
+  roadside/       # Deploy portal
+  DEPLOY_ALL.sh   # Batch deploy script
 ```
 
-## Tech Stack Summary
+## License
 
-- **Frontend**: Next.js, React, Vue.js, Svelte
-- **Backend**: Node.js, Python, Go, Rust
-- **Real-time**: WebSockets, Socket.io
-- **Data**: PostgreSQL, MongoDB, Redis
-- **Blockchain**: Custom Rust implementation
-- **3D/Graphics**: Three.js, WebGL
-- **Deployment**: Docker, Custom buildpacks
-
-## Features Across Ecosystem
-
-✅ Real-time collaboration
-✅ AI integration
-✅ Blockchain verification
-✅ Metaverse/3D worlds
-✅ Job matching
-✅ Funding platforms
-✅ Creative tools
-✅ Infrastructure monitoring
-
----
-
-Built for BlackRoad OS 🛣️
+Copyright 2026 BlackRoad OS, Inc. All rights reserved.
